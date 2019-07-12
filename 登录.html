@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>定时器示例</title>
+</head>
+
+<body>
+
+    用户名：<input type="text" id="username">
+    密码：<input type="text" id="password">
+
+    <input id="logon" type="button" onclick="logon()" value="登录">
+
+    <script>
+        function logon() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if(username == "123" && password == "123"){
+                alert("登录成功！");
+            }else{
+                if(username != "123" && password == "123"){
+                    alert("用户名错误！");
+                    document.getElementById("username").value = "";
+                    document.getElementById("password").value = "";
+                }else{
+                    if(username == "123" && password != "123"){
+                        alert("密码错误！");
+                        document.getElementById("username").value = "";
+                        document.getElementById("password").value = "";
+                    }else{
+                        alert("用户名和密码都是错误！");
+                        document.getElementById("username").value = "";
+                        document.getElementById("password").value = "";
+                    }
+                }
+            }
+        }
+
+
+
+
+        var time = "";
+        function start() {
+            document.getElementById("result").value = "";
+            time = new Date();
+        }
+
+        function stop() {
+            var time2 = new Date();
+            var bet = (time2 - time)/1000;
+            document.getElementById("result").value=bet + "s";
+        }
+    </script>
+</body>
+
+</html>
